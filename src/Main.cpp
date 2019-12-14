@@ -22,23 +22,29 @@ int main()
 	sf::Texture wall;
 	wall.loadFromFile("sprites/walls.png");
 
+	std::vector<sf::IntRect> walls;
+
 	/*Create top wall*/
 	sf::IntRect topWallRect(0, 0, 320, 8);
 	sf::Sprite topWall(wall, topWallRect);
+	walls.push_back(topWallRect);
 
 	/*Create bottom wall*/
 	sf::IntRect bottomWallRect(0, 232, 320, 8);
 	sf::Sprite bottomWall(wall, bottomWallRect);
 	bottomWall.setPosition(0, 232);
+	walls.push_back(bottomWallRect);
 
 	/*Create player 1*/
-	sf::Vector2f playerOnePos(0, 0);
+	sf::Vector2f playerOnePos(0, 160);
 	Pad playerOnePad(playerOnePos, Player1);
+	playerOnePad.SetWalls(walls);
 	playerOnePad.DrawPad();
 
 	/*Create player 2*/
-	sf::Vector2f playerTwoPos(312, 0);
+	sf::Vector2f playerTwoPos(312, 160);
 	Pad playerTwoPad(playerTwoPos, Player2);
+	playerTwoPad.SetWalls(walls);
 	playerTwoPad.DrawPad();
 
 	while (window.isOpen())

@@ -20,7 +20,7 @@ private:
 	sf::Vector2f position;
 	sf::Sprite sprite;
 	sf::Texture texture;
-	sf::IntRect* walls;
+	std::vector<sf::IntRect> walls;
 	CurrentPlayer currentPlayer;
 	Direction currentDirection;
 	float velocity, maxVelocity, acceleration;
@@ -34,6 +34,7 @@ public:
 	void Move();
 	void DrawPad();
 	void SetPosition(sf::Vector2f pos);
+	void SetWalls(std::vector<sf::IntRect> setWalls);
 	CollisionSquare collisionSquare;
 	sf::Vector2f smoothMove(sf::Vector2f playerPos, sf::Vector2f placeToMove);
 	sf::Sprite getSprite();

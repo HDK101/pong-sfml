@@ -4,8 +4,6 @@
 Pad::Pad()
 {
 	throw "Player and position must be specified!";
-
-
 }
 Pad::Pad(sf::Vector2f initialPosition, CurrentPlayer curPlayer)
 {
@@ -28,6 +26,10 @@ sf::Vector2f Pad::getPosition()
 void Pad::SetPosition(sf::Vector2f pos)
 {
 	sprite.setPosition(pos);
+}
+void Pad::SetWalls(std::vector<sf::IntRect> setWalls)
+{
+	walls = setWalls;
 }
 float Pad::getDistancePoint(sf::Vector2f point)
 {
@@ -62,6 +64,9 @@ sf::Vector2f Pad::smoothMove(sf::Vector2f playerPos, sf::Vector2f placeToMove)
 }
 void Pad::Move()
 {
+	sf::Vector2f tempPosition(0,0);
+	tempPosition = position;
+
 	if (currentDirection == Up)
 	{
 		position.y -= 5;
@@ -69,6 +74,15 @@ void Pad::Move()
 	else if (currentDirection == Down)
 	{
 		position.y += 5;
+	}
+	for (auto i = walls.begin(); i != walls.end(); ++i)
+	{
+		collisionSquare.SetSquarePosition(position);
+		if(collisionSquare.checkCollision(*i))
+		{
+			std::cout << "Walls!";
+			position = tempPosition;
+		}
 	}
 	SetPosition(smoothMove(getSpritePosition(), getPosition()));
 }
