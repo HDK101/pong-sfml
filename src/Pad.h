@@ -20,6 +20,7 @@ private:
 	sf::Vector2f position;
 	sf::Sprite sprite;
 	sf::Texture texture;
+	sf::IntRect* walls;
 	CurrentPlayer currentPlayer;
 	Direction currentDirection;
 	float velocity, maxVelocity, acceleration;

@@ -18,11 +18,26 @@ int main()
 	sf::Event event;
 	sf::Clock clock, delta;
 
-	sf::Vector2f playerOnePos(5, 5);
+	/*Texture wall*/
+	sf::Texture wall;
+	wall.loadFromFile("sprites/walls.png");
+
+	/*Create top wall*/
+	sf::IntRect topWallRect(0, 0, 320, 8);
+	sf::Sprite topWall(wall, topWallRect);
+
+	/*Create bottom wall*/
+	sf::IntRect bottomWallRect(0, 232, 320, 8);
+	sf::Sprite bottomWall(wall, bottomWallRect);
+	bottomWall.setPosition(0, 232);
+
+	/*Create player 1*/
+	sf::Vector2f playerOnePos(0, 0);
 	Pad playerOnePad(playerOnePos, Player1);
 	playerOnePad.DrawPad();
 
-	sf::Vector2f playerTwoPos(315, 5);
+	/*Create player 2*/
+	sf::Vector2f playerTwoPos(312, 0);
 	Pad playerTwoPad(playerTwoPos, Player2);
 	playerTwoPad.DrawPad();
 
@@ -45,6 +60,8 @@ int main()
 		window.clear();
 		window.draw(playerOnePad.getSprite());
 		window.draw(playerTwoPad.getSprite());
+		window.draw(topWall);
+		window.draw(bottomWall);
 		window.display();
 	}
 
