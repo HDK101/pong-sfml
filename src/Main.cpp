@@ -1,6 +1,7 @@
 #include "Main.hpp"
 #include "Pad.h"
 #include "CollisionSquare.h"
+#include "Ball.h"
 
 int main()
 {
