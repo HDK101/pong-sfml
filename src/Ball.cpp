@@ -10,6 +10,20 @@ Ball::Ball()
 
 	sprite.setTexture(texture);
 }
+sf::Sprite Ball::getSprite()
+{
+	return sprite;
+}
+/*Set pad IntRects for checking collision*/
+void Ball::SetPads(std::vector<sf::IntRect> setPads)
+{
+	pads = setPads;
+}
+/*Set wall IntRects for checking collision*/
+void Ball::SetWalls(std::vector<sf::IntRect> setWalls)
+{
+	walls = setWalls;
+}
 void Ball::SetPosition(sf::Vector2f setPosition)
 {
 	position = setPosition;
@@ -20,14 +34,14 @@ void Ball::Move()
 	collisionSquare.SetSquarePosition(position + velocity);
 	for (auto i = walls.begin(); i != walls.end(); ++i)
 	{
-		if(collisionSquare.checkCollision(*i))
+		if (collisionSquare.checkCollision(*i))
 		{
 			PingBall(YAxis);
 		}
 	}
 	for (auto i = pads.begin(); i != pads.end(); ++i)
 	{
-		if(collisionSquare.checkCollision(*i))
+		if (collisionSquare.checkCollision(*i))
 		{
 			PingBall(XAxis);
 		}

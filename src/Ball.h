@@ -23,6 +23,9 @@ public:
 	Ball();
 	CollisionSquare collisionSquare;
 	sf::Vector2f getPosition();
+	sf::Sprite getSprite();
+	void SetPads(std::vector<sf::IntRect> setPads);
+	void SetWalls(std::vector<sf::IntRect> setWalls);
 	void SetPosition(sf::Vector2f setPosition);
 	void PingBall(BallDirection direction);
 	void Move();

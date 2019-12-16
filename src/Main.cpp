@@ -48,6 +48,9 @@ int main()
 	playerTwoPad.SetWalls(walls);
 	playerTwoPad.DrawPad();
 
+	/*Ball*/
+	Ball ball;
+
 	while (window.isOpen())
 	{
 		while (window.pollEvent(event))
@@ -69,6 +72,7 @@ int main()
 		window.draw(playerTwoPad.getSprite());
 		window.draw(topWall);
 		window.draw(bottomWall);
+		window.draw(ball.getSprite());
 		window.display();
 	}
 
