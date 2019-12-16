@@ -41,3 +41,7 @@ sf::Vector2f CollisionSquare::distanceToSeparate(sf::Vector2f position, sf::IntR
 	}
 	return temp;
 }
+sf::IntRect CollisionSquare::getSquare()
+{
+	return square;
+}

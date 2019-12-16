@@ -11,6 +11,7 @@ class CollisionSquare
 	  sf::Vector2f distanceToSeparate(sf::Vector2f position, sf::IntRect squareToCheck);
 	  void SetSquare(sf::IntRect setSquare);
 	  void SetSquarePosition(sf::Vector2f position);
+	  sf::IntRect getSquare();
 };
 
 #endif
