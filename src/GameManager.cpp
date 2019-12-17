@@ -10,12 +10,12 @@ void GameManager::VerifyBall(Ball &ball)
 	if (ball.getPosition().x < -10)
 	{
 		IncreasePoints(Player2);
-		ball.SetPosition(sf::Vector2f(160,120));
+		ball.ResetPosition();
 	}
 	else if (ball.getPosition().x > 330)
 	{
 		IncreasePoints(Player1);
-		ball.SetPosition(sf::Vector2f(160,120));
+		ball.ResetPosition();
 	}
 }
 void GameManager::IncreasePoints(CurrentPlayer player)

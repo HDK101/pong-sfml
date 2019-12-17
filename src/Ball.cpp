@@ -10,6 +10,10 @@ Ball::Ball()
 
 	sprite.setTexture(texture);
 	sprite.setPosition(position);
+
+	pingSound.loadFromFile("sounds/ping.wav");
+	scoreSound.loadFromFile("sounds/score.wav");
+
 	velocity = sf::Vector2f(2, 2);
 }
 sf::Sprite Ball::getSprite()
@@ -29,6 +33,12 @@ void Ball::SetWalls(std::vector<sf::IntRect> setWalls)
 void Ball::SetPosition(sf::Vector2f setPosition)
 {
 	position = setPosition;
+}
+void Ball::ResetPosition()
+{
+	soundPlayer.setBuffer(scoreSound);
+	soundPlayer.play();
+	SetPosition(sf::Vector2f(160,120));
 }
 sf::Vector2f Ball::getPosition()
 {
@@ -81,4 +91,7 @@ void Ball::PingBall(BallDirection direction)
 	{
 		velocity.y = -velocity.y;
 	}
+
+	soundPlayer.setBuffer(pingSound);
+	soundPlayer.play();
 }
