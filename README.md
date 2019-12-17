@@ -1,1 +1,1 @@
-# sfml-vscode-boilerplate-64bits
+# Pong(SFML)
