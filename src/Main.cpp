@@ -17,7 +17,7 @@ int main()
 	window.setKeyRepeatEnabled(false);
 
 	sf::Event event;
-	sf::Clock clock, delta,ballCollisionClock;
+	sf::Clock ballCollisionClock;
 
 	/*Texture wall*/
 	sf::Texture wall;
@@ -64,7 +64,6 @@ int main()
 			}
 			playerOnePad.Input();
 			playerTwoPad.Input();
-			delta.restart();
 		}
 		pads.clear();
 
