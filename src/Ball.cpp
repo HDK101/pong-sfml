@@ -30,6 +30,10 @@ void Ball::SetPosition(sf::Vector2f setPosition)
 {
 	position = setPosition;
 }
+sf::Vector2f Ball::getPosition()
+{
+	return position;
+}
 /*Apply movement per frame*/
 void Ball::Move(sf::Clock &refCollisionCooldown)
 {
