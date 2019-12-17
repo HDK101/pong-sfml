@@ -1,14 +1,16 @@
 #include "GameManager.h"
 
-void GameManager::VerifyBall(Ball ball)
+void GameManager::VerifyBall(Ball &ball)
 {
 	if (ball.getPosition().x < -10)
 	{
 		IncreasePoints(Player2);
+		ball.SetPosition(sf::Vector2f(160,120));
 	}
 	else if (ball.getPosition().x > 330)
 	{
 		IncreasePoints(Player1);
+		ball.SetPosition(sf::Vector2f(160,120));
 	}
 }
 void GameManager::IncreasePoints(CurrentPlayer player)

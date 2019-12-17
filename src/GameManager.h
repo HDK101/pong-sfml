@@ -10,10 +10,9 @@ private:
 	sf::Vector2f ballPosition;
     int playerOnePoints,playerTwoPoints;
 public:
-	int getPlayerOnePoints();
-	int getPlayerTwoPoints();
+	int getPlayerPoints(CurrentPlayer player);
 	void Restart();
 	void IncreasePoints(CurrentPlayer player);
-	void VerifyBall(Ball ball);
+	void VerifyBall(Ball &ball);
 };
 #endif
