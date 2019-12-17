@@ -2,6 +2,7 @@
 #include "Pad.h"
 #include "CollisionSquare.h"
 #include "Ball.h"
+#include "GameManager.h"
 
 int main()
 {
@@ -17,7 +18,13 @@ int main()
 	window.setKeyRepeatEnabled(false);
 
 	sf::Event event;
-	sf::Clock ballCollisionClock;
+
+	/*Font*/
+	sf::Font font;
+	font.loadFromFile("font/aldo.tth");
+
+	/*GameManager*/
+	GameManager gameManager;
 
 	/*Texture wall*/
 	sf::Texture wall;
@@ -50,6 +57,7 @@ int main()
 	playerTwoPad.DrawPad();
 
 	/*Ball*/
+	sf::Clock ballCollisionClock;
 	Ball ball;
 	ball.SetWalls(walls);
 
@@ -73,6 +81,7 @@ int main()
 		pads.push_back(playerTwoPad.getSquare());
 		ball.SetPads(pads);
 		ball.Move(ballCollisionClock);
+		gameManager.VerifyBall(ball);
 
 		window.clear();
 		window.draw(playerOnePad.getSprite());
