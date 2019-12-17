@@ -26,3 +26,8 @@ void GameManager::IncreasePoints(CurrentPlayer player)
 		std::cout << "Increased points for Player 2!";
 	}
 }
+int GameManager::getPlayerPoints(CurrentPlayer player)
+{
+	/*If "player" is Player1, then return playerOnePoints, else return playerTwoPoints*/
+	return player == Player1 ? playerOnePoints : playerTwoPoints;
+}
