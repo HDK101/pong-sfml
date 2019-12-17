@@ -9,6 +9,8 @@ Ball::Ball()
 	collisionSquare.SetSquarePosition(sf::Vector2f(160, 120));
 
 	sprite.setTexture(texture);
+	sprite.setPosition(position);
+	velocity = sf::Vector2f(2, 2);
 }
 sf::Sprite Ball::getSprite()
 {
@@ -29,23 +31,35 @@ void Ball::SetPosition(sf::Vector2f setPosition)
 	position = setPosition;
 }
 /*Apply movement per frame*/
-void Ball::Move()
+void Ball::Move(sf::Clock &refCollisionCooldown)
 {
-	collisionSquare.SetSquarePosition(position + velocity);
+	sf::Vector2f temp = position;
+	position += velocity;
+	collisionSquare.SetSquarePosition(position);
 	for (auto i = walls.begin(); i != walls.end(); ++i)
 	{
 		if (collisionSquare.checkCollision(*i))
 		{
 			PingBall(YAxis);
+			position = temp;
+			break;
 		}
 	}
-	for (auto i = pads.begin(); i != pads.end(); ++i)
+	/*Collision cooldown, then the ball will not get stuck in pads*/
+	if (refCollisionCooldown.getElapsedTime().asSeconds() > 1)
 	{
-		if (collisionSquare.checkCollision(*i))
+		for (auto i = pads.begin(); i != pads.end(); ++i)
 		{
-			PingBall(XAxis);
+			if (collisionSquare.checkCollision(*i))
+			{
+				PingBall(XAxis);
+				position = temp;
+				refCollisionCooldown.restart();
+				break;
+			}
 		}
 	}
+	sprite.setPosition(position);
 }
 void Ball::PingBall(BallDirection direction)
 {
@@ -53,6 +67,10 @@ void Ball::PingBall(BallDirection direction)
 	if (direction == XAxis)
 	{
 		velocity.x = -velocity.x;
+
+		/*Generate a float between 0 and 5*/
+		int randomY = rand() % 5;
+		velocity.y = randomY + 0.5;
 	}
 	/*Switch Y velocity, when ball hits one of the walls*/
 	else if (direction == YAxis)

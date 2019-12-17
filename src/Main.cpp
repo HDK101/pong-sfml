@@ -17,13 +17,14 @@ int main()
 	window.setKeyRepeatEnabled(false);
 
 	sf::Event event;
-	sf::Clock clock, delta;
+	sf::Clock clock, delta,ballCollisionClock;
 
 	/*Texture wall*/
 	sf::Texture wall;
 	wall.loadFromFile("sprites/walls.png");
 
 	std::vector<sf::IntRect> walls;
+	std::vector<sf::IntRect> pads;
 
 	/*Create top wall*/
 	sf::IntRect topWallRect(0, 0, 320, 8);
@@ -50,6 +51,7 @@ int main()
 
 	/*Ball*/
 	Ball ball;
+	ball.SetWalls(walls);
 
 	while (window.isOpen())
 	{
@@ -64,8 +66,14 @@ int main()
 			playerTwoPad.Input();
 			delta.restart();
 		}
+		pads.clear();
+
 		playerOnePad.Move();
 		playerTwoPad.Move();
+		pads.push_back(playerOnePad.getSquare());
+		pads.push_back(playerTwoPad.getSquare());
+		ball.SetPads(pads);
+		ball.Move(ballCollisionClock);
 
 		window.clear();
 		window.draw(playerOnePad.getSprite());
