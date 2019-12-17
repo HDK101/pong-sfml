@@ -1,3 +1,4 @@
+#include <string>
 #include "Main.hpp"
 #include "Pad.h"
 #include "CollisionSquare.h"
@@ -21,7 +22,17 @@ int main()
 
 	/*Font*/
 	sf::Font font;
-	font.loadFromFile("font/aldo.tth");
+	font.loadFromFile("font/aldo.ttf");
+
+	/*Scores*/
+	sf::Text playerOneScore("0", font, 32u);
+	sf::Text playerTwoScore("0", font, 32u);
+
+	playerOneScore.setFillColor(sf::Color::White);
+	playerOneScore.setPosition(sf::Vector2f(120, 120));
+
+	playerTwoScore.setFillColor(sf::Color::White);
+	playerTwoScore.setPosition(sf::Vector2f(180, 120));
 
 	/*GameManager*/
 	GameManager gameManager;
@@ -82,8 +93,12 @@ int main()
 		ball.SetPads(pads);
 		ball.Move(ballCollisionClock);
 		gameManager.VerifyBall(ball);
+		playerOneScore.setString(std::to_string(gameManager.getPlayerPoints(Player1)));
+		playerTwoScore.setString(std::to_string(gameManager.getPlayerPoints(Player2)));
 
 		window.clear();
+		window.draw(playerOneScore);
+		window.draw(playerTwoScore);
 		window.draw(playerOnePad.getSprite());
 		window.draw(playerTwoPad.getSprite());
 		window.draw(topWall);
