@@ -2,17 +2,18 @@
 #define GAMEMANAGER_H
 
 #include "Pad.h"
+#include "Ball.h"
 
 class GameManager
 {
 private:
-	sf::Vector2f &ballPosition;
+	sf::Vector2f ballPosition;
     int playerOnePoints,playerTwoPoints;
 public:
-	GameManager();
 	int getPlayerOnePoints();
 	int getPlayerTwoPoints();
 	void Restart();
 	void IncreasePoints(CurrentPlayer player);
+	void VerifyBall(Ball ball);
 };
 #endif
