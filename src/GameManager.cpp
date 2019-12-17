@@ -5,6 +5,12 @@ GameManager::GameManager()
 	playerOnePoints = 0;
 	playerTwoPoints = 0;
 }
+void GameManager::Restart(Ball &ball)
+{
+	playerOnePoints = 0;
+	playerTwoPoints = 0;
+	ball.ResetPosition();
+}
 void GameManager::VerifyBall(Ball &ball)
 {
 	if (ball.getPosition().x < -10)

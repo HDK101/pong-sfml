@@ -34,6 +34,7 @@ public:
 	void Move();
 	void DrawPad();
 	void SetPosition(sf::Vector2f pos);
+	void SetRealPosition(sf::Vector2f pos);
 	void SetWalls(std::vector<sf::IntRect> setWalls);
 	CollisionSquare collisionSquare;
 	sf::Vector2f smoothMove(sf::Vector2f playerPos, sf::Vector2f placeToMove);

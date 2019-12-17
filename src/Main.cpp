@@ -56,13 +56,13 @@ int main()
 	walls.push_back(bottomWallRect);
 
 	/*Create player 1*/
-	sf::Vector2f playerOnePos(0, 160);
+	sf::Vector2f playerOnePos(0, 100);
 	Pad playerOnePad(playerOnePos, Player1);
 	playerOnePad.SetWalls(walls);
 	playerOnePad.DrawPad();
 
 	/*Create player 2*/
-	sf::Vector2f playerTwoPos(312, 160);
+	sf::Vector2f playerTwoPos(312, 100);
 	Pad playerTwoPad(playerTwoPos, Player2);
 	playerTwoPad.SetWalls(walls);
 	playerTwoPad.DrawPad();
@@ -83,6 +83,15 @@ int main()
 			}
 			playerOnePad.Input();
 			playerTwoPad.Input();
+			if(event.type == sf::Event::KeyPressed)
+			{
+				if(event.key.code == sf::Keyboard::R)
+				{
+					playerOnePad.SetRealPosition(sf::Vector2f(0,100));
+					playerTwoPad.SetRealPosition(sf::Vector2f(312,100));
+					gameManager.Restart(ball);
+				}
+			}
 		}
 		pads.clear();
 

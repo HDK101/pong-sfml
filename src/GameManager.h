@@ -13,7 +13,7 @@ private:
 public:
 	GameManager();
 	int getPlayerPoints(CurrentPlayer player);
-	void Restart();
+	void Restart(Ball &ball);
 	void IncreasePoints(CurrentPlayer player);
 	void VerifyBall(Ball &ball);
 };

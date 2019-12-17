@@ -27,6 +27,10 @@ void Pad::SetPosition(sf::Vector2f pos)
 {
 	sprite.setPosition(pos);
 }
+void Pad::SetRealPosition(sf::Vector2f pos)
+{
+	position = pos;
+}
 void Pad::SetWalls(std::vector<sf::IntRect> setWalls)
 {
 	walls = setWalls;
