@@ -64,7 +64,7 @@ sf::Vector2f Pad::smoothMove(sf::Vector2f playerPos, sf::Vector2f placeToMove)
 }
 void Pad::Move()
 {
-	sf::Vector2f tempPosition(0,0);
+	sf::Vector2f tempPosition(0, 0);
 	tempPosition = position;
 
 	if (currentDirection == Up)
@@ -78,7 +78,7 @@ void Pad::Move()
 	for (auto i = walls.begin(); i != walls.end(); ++i)
 	{
 		collisionSquare.SetSquarePosition(position);
-		if(collisionSquare.checkCollision(*i))
+		if (collisionSquare.checkCollision(*i))
 		{
 			std::cout << "Walls!";
 			position = tempPosition;
@@ -118,4 +118,8 @@ void Pad::Input()
 sf::Sprite Pad::getSprite()
 {
 	return sprite;
+}
+sf::IntRect Pad::getSquare()
+{
+	return collisionSquare.getSquare();
 }
