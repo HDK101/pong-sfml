@@ -1,5 +1,10 @@
 #include "GameManager.h"
 
+GameManager::GameManager()
+{
+	playerOnePoints = 0;
+	playerTwoPoints = 0;
+}
 void GameManager::VerifyBall(Ball &ball)
 {
 	if (ball.getPosition().x < -10)

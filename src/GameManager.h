@@ -8,8 +8,10 @@ class GameManager
 {
 private:
 	sf::Vector2f ballPosition;
-    int playerOnePoints,playerTwoPoints;
+	int playerOnePoints, playerTwoPoints;
+
 public:
+	GameManager();
 	int getPlayerPoints(CurrentPlayer player);
 	void Restart();
 	void IncreasePoints(CurrentPlayer player);
