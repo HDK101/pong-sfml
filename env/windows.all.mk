@@ -16,6 +16,7 @@ BUILD_DEPENDENCIES := \
 PRODUCTION_DEPENDENCIES := \
 	$(PRODUCTION_DEPENDENCIES) \
 	$(_MINGW)/libgcc_s_dw2-1.dll \
+	$(_MINGW)/libgcc_s_seh-1.dll \
 	$(_MINGW)/libstdc++-6.dll \
 	$(_MINGW)/libwinpthread-1.dll \
 	$(_SFML_BIN)/openal32.dll \

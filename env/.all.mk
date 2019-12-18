@@ -26,5 +26,8 @@ PRODUCTION_EXCLUDE := \
 	.DS_Store
 
 PRODUCTION_DEPENDENCIES := \
-	content
+	content\
+	sprites\
+	sounds\
+	font
 
