@@ -8,3 +8,6 @@ A Pong made in <a href="https://www.sfml-dev.org/">SFML</a>(C++)
 
 Just a project to test my CPP skills
 
+# Credits
+SFML VSCode Boilerplate: https://github.com/andrew-r-king/sfml-vscode-boilerplate
+
