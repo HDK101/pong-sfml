@@ -1,5 +1,7 @@
 # Pong(SFML)
 
+![Alt text](/ponggif.gif?raw=true "Game")
+
 A Pong made in SFML(C++)
 
 # Motivation
