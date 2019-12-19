@@ -20,8 +20,8 @@ Just a project to test my CPP skills
 5. Go to the folder "build" and run "pong-sfml.exe"
 
 ## Linux
-1.Install the GCC Toolchain(sudo apt install build-essential) and install SFML(sudo apt install libsfml-dev)
-2.Run "./build.sh"
+1. Install the GCC Toolchain(sudo apt install build-essential) and install SFML(sudo apt install libsfml-dev)
+2. Run "./build.sh"
 3. Go to the folder "build" and run "pong-sfml"
 
 # Credits
