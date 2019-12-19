@@ -2,7 +2,7 @@
 
 ![Alt text](/ponggif.gif?raw=true "Game")
 
-A Pong made in SFML(C++)
+A Pong made in <a href="https://www.sfml-dev.org/">SFML</a>(C++)
 
 # Motivation
 
